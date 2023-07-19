@@ -6,7 +6,7 @@
 /*   By: landeo <landeo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:39:00 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/07/19 13:24:49 by landeo           ###   ########.fr       */
+/*   Updated: 2023/07/19 17:34:59 by landeo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 //								Pipex
 // =======================================================================
 
+int     ft_pasing_manager(char **argv);
 void	writestr(int fd, const char *str);
 int		test(void);
 int		ft_envp_found(char *envp[]);
