@@ -6,19 +6,23 @@
 #    By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 16:41:59 by tpotilli          #+#    #+#              #
-#    Updated: 2023/07/13 15:57:45 by tpotilli         ###   ########.fr        #
+#    Updated: 2023/10/04 09:29:39 by tpotilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	Pipex
 
 SRCS	=	srcs/main.c\
-			srcs/ft_split.c\
-			srcs/ft_strlen.c\
-			srcs/ft_strncmp.c\
-			srcs/ft_strnstr.c\
+			srcs/pipex.c\
+			srcs/ft_create_and_verify.c\
+			srcs/ft_child_process.c\
+			srcs/ft_parent_process.c\
+			libft/ft_split.c\
+			libft/ft_strlen.c\
+			libft/ft_strncmp.c\
+			libft/ft_strnstr.c\
 
-OBJS= $(SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 CC		=	gcc
 

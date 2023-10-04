@@ -6,76 +6,43 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:00:57 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/07/14 17:56:09 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:38:38 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pipex.h"
+#include "pipex.h"
 
-int main(int argc, char **argv, char *envp[])
+/*
+**	This function takes as parameter: 
+**
+**  int argc
+**	Char *argv
+**	char *envp
+**
+** =====================================================
+** =====================================================
+**
+** we create the fd1 and fd4 in create_fd
+** with the flags :
+** fd1 = O_RDONLY = read only so we can read but not modify
+** fd4 = O_WRONLY = Write Only we can write but not read
+** fd4 = O_CREAT = to create file if does not exist
+** fd4 = O_TRUNC = To cahnge the file if he exist
+*/
+
+// il me faut une fonction pour les actions de l'enfant et un pour les parents
+// il me faut check le fork avant
+int main(int argc, char *argv[], char *envp[])
 {
-	(void)argc;
-	(void)argv;
-	char **buff;
-	int i;
-	int j;
+	int		fd1;
+	int		fd4;
 
-	j = 0;
-	i = ft_envp_found(envp);
-	//printf("i = %d\n", i);
-	buff = ft_recup_env(envp, i);
-	//printf("%s\n", buff[0]);
-	i = 0;
-	while (buff[i])
-	{
-		while (buff[i][j])
-		{
-			printf("%c", buff[i][j]);
-			j++;
-		}
-		j = 0;
-		i++;
-		printf("\n");
-	}
-	return (0);
-}
-
-char **ft_recup_env(char **envp, int i)
-{
-	char	**recup;
-
-	recup = ft_split(envp[i], ':');
-	//printf("env = %s\n", recup[i]);
-	if (!recup)
-		return (NULL);
-	return (recup);
-}
-
-int	ft_envp_found(char *envp[])
-{
-	int 	i;
-	const char	*word;
-	int		j;
-	int		cpt;
-
-	j = 0;
-	cpt = 0;
-	word = "PATH=";
-	i = 0;
-	while (envp[i])
-	{
-		//printf("%s\n", envp[i]);
-		while (envp[i][j] == word[j])
-		{
-			cpt++;
-			if (cpt == 5)
-				return (i);
-			j++;
-			//printf("j = %d\n", j);
-		}
-		j = 0;
-		cpt = 0;
-		i++;
-	}
+	if (ft_parsing(argc) == 1)
+		return (-1);
+	fd1 = ft_create_fd(argv[1], O_RDONLY);
+	fd4 = ft_create_fd(argv[4], O_WRONLY | O_CREAT | O_TRUNC);
+	if (fd1 < 0 || fd4 < 0)
+		return (-1);
+	ft_pipex(fd1, fd4, argv, envp);
 	return (0);
 }

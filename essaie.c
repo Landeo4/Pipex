@@ -6,12 +6,18 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 13:26:05 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/07/13 11:50:31 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:45:15 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pipex.h"
-
+# include <fcntl.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <unistd.h>
+# include <signal.h>
 //	Fonction utilitaire pour écrire
 void	writestr(int fd, const char *str)
 {

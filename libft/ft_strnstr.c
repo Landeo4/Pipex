@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpotilli <theo91.pot@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 13:59:28 by tpotillion        #+#    #+#             */
-/*   Updated: 2023/07/13 12:38:15 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/07/26 22:51:20 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 **	He will use len for the limit of the where you want to search
 */
 
-#include "Pipex.h"
+#include "pipex.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {

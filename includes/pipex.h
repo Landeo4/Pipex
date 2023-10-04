@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pipex.h                                            :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:39:00 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/07/13 17:25:47 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:39:37 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 //								Pipex
 // =======================================================================
 
-void	writestr(int fd, const char *str);
-int		test(void);
-int		ft_envp_found(char *envp[]);
-char **ft_recup_env(char **envp, int i);
+int	    ft_parsing(int argc);
+int     ft_verif_error(char *buff, int fd[]);
+int 	ft_pipex(int fd1, int fd2,  char *argv[], char *envp[]);
+int 	ft_create_fd(char *argv, int flag);
+int		child_process(int fd1, char *argv[], char *envp[], int *end);
+int     parent_process(int fd4, char *argv[], char *envp[], int *end);
 
 #endif
