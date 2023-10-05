@@ -6,7 +6,7 @@
 #    By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 16:41:59 by tpotilli          #+#    #+#              #
-#    Updated: 2023/10/04 09:29:39 by tpotilli         ###   ########.fr        #
+#    Updated: 2023/10/05 07:55:23 by tpotilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,9 @@ SRCS	=	srcs/main.c\
 			libft/ft_strlen.c\
 			libft/ft_strncmp.c\
 			libft/ft_strnstr.c\
+			libft/ft_substr.c\
+			libft/ft_strdup.c\
+			libft_ft_str_join.c\
 
 OBJS = $(SRCS:.c=.o)
 

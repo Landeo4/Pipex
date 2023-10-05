@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parent_process.c                                :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/11 15:59:09 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/05 07:28:28 by tpotilli         ###   ########.fr       */
+/*   Created: 2023/10/05 07:43:30 by tpotilli          #+#    #+#             */
+/*   Updated: 2023/10/05 07:43:53 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int parent_process(int fd4, char *argv[], char *envp[], int *end)
+char	*ft_strdup(const char *s)
 {
-	close(end[1]);
-	dup2(fd4, STDOUT_FILENO);
-	dup2(end[0], STDIN_FILENO);
-	execve(argv[4], argv, envp);
-	close(end[0]);
-	close(fd4);
-	exit(EXIT_SUCCESS);
+	int		i;
+	char	*str;
+	int		len;
+
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	str = malloc(sizeof(char) * len + 1);
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

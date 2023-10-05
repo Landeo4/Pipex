@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:39:00 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/04 10:39:37 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 07:56:17 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,16 @@
 int		ft_letter(char const *s, char c, int i);
 char	**ft_free(char **split, int index_word);
 int		ft_word(char const *s, char c);
-char	**ft_cpy(char const *s, char c, char **split, int i);
+char	**ft_copy(char const *s, char c, char **split, int i);
 char	**ft_split(char const *s, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
+int		ft_check(char const *s, size_t len, unsigned int start);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strdup(const char *s);
+char	*ft_cpy(char const *s1, char const *s2, char *str);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 // =======================================================================
 //								Pipex

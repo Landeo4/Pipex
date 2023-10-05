@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpotilli <theo91.pot@gmail.com>            +#+  +:+       +#+        */
+/*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 09:33:54 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/07/26 22:51:27 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 07:56:13 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	ft_word(char const *s, char c)
 	return (word + 1);
 }
 
-char	**ft_cpy(char const *s, char c, char **split, int i)
+char	**ft_copy(char const *s, char c, char **split, int i)
 {
 	int	index_word;
 	int	index_letter;

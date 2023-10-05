@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 09:28:48 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/04 13:48:28 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 07:21:49 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int ft_pipex(int fd1, int fd2, char *argv[], char *envp[])
 	pid_t	pid;
 	int		end[2];
 	int		status;
-	(void)fd2;
 
 	pipe(end);
 	pid = fork();
