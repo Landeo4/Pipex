@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 09:33:54 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/05 07:56:13 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 08:43:41 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,6 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (s[i] == c)
 		i++;
-	ft_cpy(s, c, split, i);
+	ft_copy(s, c, split, i);
 	return (split);
 }
