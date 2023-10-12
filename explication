@@ -124,3 +124,6 @@ Les pipes facilitent le transfert de données d'un processus
  à un autre de manière efficace dans un système Unix-like.
 
 */
+
+// exemple test  < test1 ls -l | wc -l > test2 
+//

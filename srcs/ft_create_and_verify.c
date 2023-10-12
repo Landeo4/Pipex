@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 23:14:04 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/04 07:20:57 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/11 10:51:32 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_parsing(int argc)
 {
 	if (argc != 5)
 	{
-		write(1, "error invalid arguments\n", 25);
+		write(0, "error invalid arguments\n", 25);
 		write(1, "argument should look like this : ./pipex infile cmd1 cmd2 outfile\n", 46);
 		return (1);
 	}
