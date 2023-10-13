@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:58:51 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/12 14:28:46 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:30:52 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,52 +26,76 @@
 ** 
 */
 
-void child_process(int fd1, char *argv[], char *envp[], int *end)
+void	child_process(int fd1, char *argv[], char *envp[], int *end)
 {
+	char	**path;
+
+	path = ft_take_line(envp, "PATH=");
 	close(end[0]);
-    /*if (dup2 < 0)
+	/*if (dup2 < 0)
 		return (1);*/
 	dup2(fd1, STDIN_FILENO);
 	dup2(end[1], STDOUT_FILENO);
-	ft_do_process(envp, argv[2]);
-    close(end[1]);
+	ft_do_process(envp, argv[2], path);
+	close(end[1]);
 	close(fd1);
 }
 
-void ft_do_process(char *envp[], char *cmd)
+void	ft_do_process(char *envp[], char *cmd, char *path[])
 {
 	int		i;
-	char	*path;
-	char	**mypath;
 	char	**cmdarg;
+	char	*fullpath;
 
 	i = -1;
-	//path = ft_substr("PATH=", 22, 1);
-	path = ft_strnstr("envp", "PATH=", 50);
-	mypath = ft_split(path, ':');
 	cmdarg = ft_split(cmd, ' ');
-	while (mypath[++i])
+	while (path[++i])
 	{
-		cmd = ft_strjoin(mypath[i], cmd);
-		if (!cmd)
+		fullpath = ft_strjoin(path[i], cmd);
+		if (!fullpath)
+		{
+			ft_freedb(cmdarg);
 			return ;
-		execve(mypath[i], cmdarg, envp);
+		}
+		execve(fullpath, cmdarg, envp);
+		free(fullpath);
 	}
+	ft_freedb(cmdarg);
+	write(1, "Command not found\n", 19);
 }
 
-char *ft_get_line(char *start, char end)
+void	ft_freedb(char **str)
 {
-	char	*result;
-	int		i;
+	int	i;
 
 	i = 0;
-	result = NULL;
-	if (!start || !end)
-		return (NULL);
-	while (start[i] && start[i] != end)
+	while (str[i])
 	{
-		result[i] = start[i];
+		free(str[i]);
 		i++;
 	}
-	return (result);
+	free(str);
+}
+
+char	**ft_take_line(char **big, char *little)
+{
+	int		little_length;
+	int		i;
+	char	**tmp;
+
+	tmp = NULL;
+	i = 0;
+	if (!big || !little)
+		return (NULL);
+	little_length = strlen(little);
+	while (big[i])
+	{
+		if (strncmp(big[i], little, little_length) == 0)
+		{
+			tmp = ft_split(big[i] + little_length, ':');
+			return (tmp);
+		}
+		i++;
+	}
+	return (NULL);
 }

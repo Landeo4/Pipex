@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tpotilli <theo91.pot@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 12:13:44 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/12 14:06:05 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/07/26 22:51:04 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,10 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 }
+
+/*int main()
+{
+	printf("%d\n",ft_strncmp("atoms\0\0\0\0", "atoms\0abc", 8));
+	printf("%d\n",strncmp("atoms\0\0\0\0", "atoms\0abc", 8));
+
+}*/

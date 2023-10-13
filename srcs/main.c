@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 17:00:57 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/11 18:02:18 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:28:51 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,11 @@
 
 // il me faut une fonction pour les actions de l'enfant et un pour les parents
 // il me faut check le fork avant
-int main(int argc, char *argv[], char *envp[])
+int	main(int argc, char *argv[], char *envp[])
 {
 	int		fd1;
 	int		fd4;
-	int		i;
 
-	i = 0;
-	while (argv[i])
-	{
-		printf("%s\n", argv[i]);
-		i++;
-	}
 	if (ft_parsing(argc) == 1)
 		return (-1);
 	fd1 = ft_create_fd(argv[1], O_RDONLY);

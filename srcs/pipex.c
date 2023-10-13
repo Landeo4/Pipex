@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 09:28:48 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/11 18:29:04 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:29:07 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 ** waitpid() wait the end of parent to wait child
 */
 
-int ft_pipex(int fd1, int fd2, char *argv[], char *envp[])
+int	ft_pipex(int fd1, int fd2, char *argv[], char *envp[])
 {
 	pid_t	pid;
 	int		end[2];
@@ -48,9 +48,17 @@ int ft_pipex(int fd1, int fd2, char *argv[], char *envp[])
 	if (pid < 0)
 		return (1);
 	else if (pid == 0)
+	{
+		write(1, "child process\n", 15);
 		child_process(fd1, argv, envp, end);
+		write(1, "child process exe\n", 19);
+	}
 	else
+	{
+		write(1, "parent process\n", 16);
 		parent_process(fd2, argv, envp, end);
+		write(1, "parent process exe\n", 20);
+	}
 	close(end[0]);
 	close(end[1]);
 	waitpid(pid, &status, 0);

@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:39:00 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/12 14:28:10 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:26:27 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,15 @@ char	*ft_strjoin(char const *s1, char const *s2);
 //								Pipex
 // =======================================================================
 
-int	    ft_parsing(int argc);
-int     ft_verif_error(char *buff, int fd[]);
-int 	ft_pipex(int fd1, int fd2,  char *argv[], char *envp[]);
-int 	ft_create_fd(char *argv, int flag);
+int		ft_parsing(int argc);
+int		ft_verif_error(char *buff, int fd[]);
+int		ft_pipex(int fd1, int fd2, char *argv[], char *envp[]);
+int		ft_create_fd(char *argv, int flag);
 void	child_process(int fd1, char *argv[], char *envp[], int *end);
 void	parent_process(int fd4, char *argv[], char *envp[], int *end);
 char	*ft_get_pass(char *argv, char *envp, int i);
-void	ft_do_process(char *envp[], char *cmd);
+void	ft_do_process(char *envp[], char *cmd, char **path);
+char	**ft_take_line(char **big, char *little);
+void	ft_freedb(char **str);
 
 #endif
