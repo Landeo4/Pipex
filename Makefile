@@ -6,7 +6,7 @@
 #    By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 16:41:59 by tpotilli          #+#    #+#              #
-#    Updated: 2023/10/11 09:51:56 by tpotilli         ###   ########.fr        #
+#    Updated: 2023/10/18 09:20:10 by tpotilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,14 @@ SRCS	=	srcs/main.c\
 			srcs/ft_create_and_verify.c\
 			srcs/ft_child_process.c\
 			srcs/ft_parent_process.c\
+			srcs/execute.c\
 			libft/ft_split.c\
 			libft/ft_strlen.c\
-			libft/ft_strncmp.c\
 			libft/ft_strnstr.c\
 			libft/ft_substr.c\
 			libft/ft_strdup.c\
 			libft/ft_strjoin.c\
+			libft/ft_strncmp.c\
 
 OBJS = $(SRCS:.c=.o)
 

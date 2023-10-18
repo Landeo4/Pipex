@@ -6,7 +6,7 @@
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 16:39:00 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/13 17:26:27 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:45:22 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ char	**ft_free(char **split, int index_word);
 int		ft_word(char const *s, char c);
 char	**ft_copy(char const *s, char c, char **split, int i);
 char	**ft_split(char const *s, char c);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlen(const char *s);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_check(char const *s, size_t len, unsigned int start);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s);
 char	*ft_cpy(char const *s1, char const *s2, char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
 
 // =======================================================================
 //								Pipex
@@ -69,8 +69,14 @@ int		ft_create_fd(char *argv, int flag);
 void	child_process(int fd1, char *argv[], char *envp[], int *end);
 void	parent_process(int fd4, char *argv[], char *envp[], int *end);
 char	*ft_get_pass(char *argv, char *envp, int i);
-void	ft_do_process(char *envp[], char *cmd, char **path);
+void	ft_do_process(char *envp[], char *cmd);
 char	**ft_take_line(char **big, char *little);
 void	ft_freedb(char **str);
+void	ft_execute(char	*cmd, char	**env);
+char	*ft_strjoin_free(char *s1, char *s2);
+char	**ft_get_path(char **env);
+char	*ft_strchr(const char *string, int searchedChar);
+int		not_Path(const char *s1, const char *s2);
+char	*str_join_free(char *path, char *cmd);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_join.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 07:55:00 by tpotilli          #+#    #+#             */
-/*   Updated: 2023/10/05 07:55:08 by tpotilli         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:41:39 by tpotilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ char	*ft_cpy(char const *s1, char const *s2, char *str)
 	return (str);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int		lens;
-	char	*str;
+	int			lens;
+	char		*str;
 
 	if (!s1 || !s2)
 		return (NULL);
