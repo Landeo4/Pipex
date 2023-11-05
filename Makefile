@@ -6,11 +6,13 @@
 #    By: tpotilli <tpotilli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/10 16:41:59 by tpotilli          #+#    #+#              #
-#    Updated: 2023/10/18 14:11:04 by tpotilli         ###   ########.fr        #
+#    Updated: 2023/11/05 10:18:54 by tpotilli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	Pipex
+
+OBJS_PATH	= objs/
 
 SRCS	=	srcs/main.c\
 			srcs/pipex.c\
@@ -26,18 +28,16 @@ SRCS	=	srcs/main.c\
 			libft/ft_strjoin.c\
 			libft/ft_strncmp.c\
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Werror -Wextra -g3 -g
-.c.o:
-		${CC} ${CFLAGS} -Iincludes -c $< -o ${<:.c=.o}
+CFLAGS	=	-Wall -Werror -Wextra -g3 -Iincludes
 
 all : ${NAME}
 
 ${NAME}:	${OBJS}
-			${CC} ${CFLAGS} -o ${NAME} ${OBJS}
+			${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
 clean:
 			rm -rf ${OBJS}
@@ -48,3 +48,7 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:	all clean fclean re
+
+${OBJS_PATH}%.o: %.c
+		@mkdir -p $(@D)
+		${CC} ${CFLAGS} -c $< -o $@
